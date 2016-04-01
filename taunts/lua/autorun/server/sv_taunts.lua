@@ -1,6 +1,5 @@
 
 util.AddNetworkString( "CoreTauntAct" )
-
 local cd = false
 local TeamName
 local TeamFix 
@@ -9,7 +8,6 @@ if CoreTaunts.Gamemode == 0 then // 0 Sandbox | 1 Deathrun | 2 TTT
 	TeamName = TEAM_CONNECTING
 elseif CoreTaunts.Gamemode == 1 then
 	TeamName = TEAM_RUNNER
-
 end
 
 if CoreTaunts.Custom then
@@ -61,6 +59,7 @@ local function Tauntfunc( ply )
 		ply:EmitSound(taunt, 100, pitch)
 	end
 end
-hook.Add("ShowTeam", "School", Tauntfunc)
+if CoreTaunts.F2 then
+	hook.Add("ShowTeam", "School", Tauntfunc)
+end
 concommand.Add("taunt", Tauntfunc)
-
