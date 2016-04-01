@@ -1,7 +1,7 @@
 
 CoreTaunts = {} // DO NOT EDIT THIS BRO
 
-CoreTaunts.Custom = false // false = using standart
+CoreTaunts.Custom = false // false = using standard HL2 Texts
 
 if CoreTaunts.Custom then // DO NOT EDIT THIS BRO
 
@@ -12,20 +12,18 @@ if CoreTaunts.Custom then // DO NOT EDIT THIS BRO
 	
 end // DO NOT EDIT THIS BRO
 
+// Gamemode?    0 = Sandbox | 1 = Deathrun by Mr-Gash | 2 = TTT |||| more to come?
+CoreTaunts.Gamemode = 1  // This is for Sandbox use CoreTaunts.Team2 to set the sounds up. On TTT Team1 = Traitor
+
 
 CoreTaunts.Cooldown = 10 // Eeeh yeah
-
 CoreTaunts.Pitch = 0 // 50 = Darkest monster of your childhood - 255 = MickeyMouse on speed  || 0 = Random ||| Don't go below or higher 
-
-// Gamemode?    0 = Sandbox | 1 = Deathrun by Mr-Gash | 2 = TTT |||| more to come?
-
-
-CoreTaunts.Gamemode = 1  // This is for Sandbox use CoreTaunts.Team2 to set the sounds up. On TTT Team1 = Traitor
+CoreTaunts.F2 = true // Using ShowTeam stuff. Else use the console command taunt
 
 
 // Just some random sounds out a soundlist https://maurits.tv/data/garrysmod/wiki/wiki.garrysmod.com/index8f77.html
 CoreTaunts.Team1 = {
-  "vo/Citadel/al_dienow.wav",
+	"vo/Citadel/al_dienow.wav",
 	"vo/Citadel/al_dienow_b.wav",
 	"vo/Citadel/al_dontforget.wav",
 	"vo/Citadel/al_dontlisten.wav",
@@ -245,5 +243,3 @@ CoreTaunts.Acts = {
 	ACT_GMOD_TAUNT_ROBOT,
 	ACT_GMOD_TAUNT_SALUTE
 } 
-
-
