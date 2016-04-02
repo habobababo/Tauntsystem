@@ -1,6 +1,5 @@
 
 util.AddNetworkString( "CoreTauntAct" )
-local cd = false
 local TeamName
 local TeamFix 
 
@@ -24,13 +23,12 @@ local function Tauntfunc( ply )
 	local id = ply:SteamID64()
 	local pitch = 255	
 	
-	
 	if ply:Alive() then
-		if cd then return end
+		if ply:GetNWBool("TauntCD") then return end
 		timer.Simple(CoreTaunts.Cooldown, function() 
-			cd = false
+			ply:SetNWBool("TauntCD", false)
 		end)
-		cd = true
+		ply:SetNWBool("TauntCD", true)
 		if CoreTaunts.Gamemode != 2 then
 			if ply:Team() == TeamName then
 				taunt = table.Random(CoreTaunts.Team1)
@@ -63,3 +61,4 @@ if CoreTaunts.F2 then
 	hook.Add("ShowTeam", "School", Tauntfunc)
 end
 concommand.Add("taunt", Tauntfunc)
+
