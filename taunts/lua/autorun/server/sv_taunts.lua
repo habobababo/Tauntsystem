@@ -1,7 +1,6 @@
 
 util.AddNetworkString( "CoreTauntAct" )
 local TeamName
-local TeamFix 
 
 if CoreTaunts.Gamemode == 0 then // 0 Sandbox | 1 Deathrun | 2 TTT
 	TeamName = TEAM_CONNECTING
