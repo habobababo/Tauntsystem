@@ -1,4 +1,5 @@
 
+
 util.AddNetworkString( "CoreTauntAct" )
 local TeamName
 
@@ -22,8 +23,17 @@ local function Tauntfunc( ply )
 	local id = ply:SteamID64()
 	local pitch = 255	
 	
+	if CoreTaunts.CanTalk then	
+		if table.HasValue(CoreTaunts.AllowedGroupsT, ply:GetNWString("usergroup")) then
+			ply:SetNWBool("TauntCanUse", false)
+		else
+			ply:SetNWBool("TauntCanUse", true)
+		end
+	end
+
 	if ply:Alive() then
 		if ply:GetNWBool("TauntCD") then return end
+		if ply:GetNWBool("TauntCanUse") then return end
 		timer.Simple(CoreTaunts.Cooldown, function() 
 			ply:SetNWBool("TauntCD", false)
 		end)
@@ -46,7 +56,6 @@ local function Tauntfunc( ply )
 		net.Start( "CoreTauntAct" )
 			net.WriteString(id)
 		net.Broadcast()
-		ply.cd = CurTime()
 
 		if CoreTaunts.Pitch == 0 then
 			pitch = math.random(50,255)
@@ -55,9 +64,12 @@ local function Tauntfunc( ply )
 		end
 		ply:EmitSound(taunt, 100, pitch)
 	end
+	
 end
 if CoreTaunts.F2 then
 	hook.Add("ShowTeam", "School", Tauntfunc)
 end
 concommand.Add("taunt", Tauntfunc)
+
+
 
