@@ -20,6 +20,21 @@ CoreTaunts.Cooldown = 10 // Eeeh yeah
 CoreTaunts.Pitch = 0 // 50 = Darkest monster of your childhood - 255 = MickeyMouse on speed  || 0 = Random ||| Don't go below or higher 
 CoreTaunts.F2 = true // Using ShowTeam stuff. Else use the console command taunt
 
+CoreTaunts.CanTalk = true // Checks the ULX rank or whatever
+CoreTaunts.AllowedGroupsT = {
+	"superadmin",
+	"admin",
+	"donator"
+}
+ // Check that you seperate the entries with a ",". The last one doesn't need one.
+ 
+CoreTaunts.CanDance = true // Allowed groups to use dance
+CoreTaunts.AllowedGroupsD = {
+	"superadmin",
+	"admin",
+	"donator"
+}
+ // Check that you seperate the entries with a ",". The last one doesn't need one.
 
 // Just some random sounds out a soundlist https://maurits.tv/data/garrysmod/wiki/wiki.garrysmod.com/index8f77.html
 CoreTaunts.Team1 = {
